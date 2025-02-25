@@ -1,0 +1,79 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 25 feb 2025, 00:39:01
+    Author     : orozc
+*/
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    margin: 0;
+}
+
+/* Header Styles */
+.header {
+    background-color: #2C3E50; /* Color de fondo del header */
+    color: darkcyan;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.navbar .navbar-brand {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    padding: 0.8rem;
+    font-weight: 500;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    background-color: #16a085; /* Color suave para el hover */
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #16a085, #2ecc71); /* Gradiente de colores */
+    padding: 60px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #ecf0f1;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #8e44ad; /* Color de fondo del footer */
+    color: white;
+}
+
+.footer p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
