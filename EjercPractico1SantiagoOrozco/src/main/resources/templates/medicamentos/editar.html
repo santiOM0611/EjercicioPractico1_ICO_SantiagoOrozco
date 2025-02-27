@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Modificar Medicamento - TechShop</title>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+
+        <section th:fragment="editarMedicamento">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST" th:action="@{/medicamentos/guardar}" th:object="${medicamento}"
+                          class="was-validated" enctype="multipart/form-data">
+                        <input type="hidden" name="id" th:field="*{id}"/>
+                        <section th:replace="~{medicamentos/fragmentos :: botonesEditar}"/>
+                        <div id=details>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>[[#{accion.actualizar}]]</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="nombre">[[#{medicamento.nombre}]]</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="nombre" th:field="*{nombre}" required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="descripcion">[[#{medicamento.descripcion}]]</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="descripcion" th:field="*{descripcion}" required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="precio">[[#{medicamento.precio}]]</label>
+                                                    <input type="number" class="form-control" 
+                                                           name="precio" th:field="*{precio}" required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="stock">[[#{medicamento.stock}]]</label>
+                                                    <input type="number" class="form-control" 
+                                                           name="stock" th:field="*{stock}" required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="categoria">[[#{medicamento.categoria}]]</label>
+                                                    <select class="form-control" name="categoria.id" th:field="*{categoria.id}">
+                                                        <option th:each="categoria : ${categorias}" th:value="${categoria.id}"
+                                                                th:text="${categoria.nombre}">Categoria</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section th:fragment="botonesEditar">
+            <div class="container py-4 mb-4 bg-light">
+                <div class="row">
+                    <div class="col-md-4 d-grid">
+                        <a th:href="@{/medicamentos/listado}" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">                                 
+                        <a th:href="@{/medicamentos/eliminar/}+${medicamento.id}" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>
+

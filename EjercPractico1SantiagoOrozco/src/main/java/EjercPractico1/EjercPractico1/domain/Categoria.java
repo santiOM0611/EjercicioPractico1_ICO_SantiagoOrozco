@@ -5,30 +5,17 @@
 
 package EjercPractico1.EjercPractico1.domain;
 
-import jakarta.persistence.*;
-import java.io.Serializable;
-import lombok.Data;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-@Data
 @Entity
-@Table(name="categoria")
-public class Categoria implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
-    
+public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_categoria")
-    private Long idCategoria;
-    private String descripcion;
-    private String rutaImagen;
-    private boolean activo;
+    private Long id;
 
-    public Categoria() {
-    }
-
-    public Categoria(String categoria, boolean activo) {
-        this.descripcion = categoria;
-        this.activo = activo;
-    }
+    private String nombre;
+    
 }
